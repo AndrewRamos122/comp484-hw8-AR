@@ -1,0 +1,608 @@
+/* Color Palette — cold ocean tones
+#0b1f33 - Midnight navy
+#16425b - Deep ocean blue
+#3a7d8c - Storm teal
+#a7dce0 - Ice blue
+#e8f3f5 - Frost
+#f8fbfc - Snow
+*/
+
+/* Global styles
+------------------------------------*/
+html {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+:root {
+  --midnight: #0b1f33;
+  --ocean: #16425b;
+  --storm: #3a7d8c;
+  --ice: #a7dce0;
+  --frost: #e8f3f5;
+  --snow: #f8fbfc;
+  --ink: #102a3a;
+  --muted: #526d7a;
+  --line: #c6dce1;
+  --shadow: 0 18px 45px rgba(4, 25, 41, 0.18);
+}
+
+body {
+  margin: 0;
+  background: var(--snow);
+  color: var(--ink);
+  font-family: "Times New Roman", "Tinos", Times, serif;
+  font-size: 1.125rem;
+  line-height: 1.65;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.22em;
+}
+
+a:hover {
+  text-decoration-thickness: 2px;
+}
+
+a:focus-visible {
+  outline: 3px solid var(--ice);
+  outline-offset: 4px;
+}
+
+h1,
+h2,
+h3,
+.eyebrow,
+.section-kicker,
+.tag-list,
+.quick-details,
+.contact-info,
+.back-to-top {
+  font-family: "Bebas Neue", Impact, sans-serif;
+  font-weight: 400;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+}
+
+h1 {
+  margin-bottom: 0.1em;
+  font-size: clamp(4rem, 8vw, 6.5rem);
+  letter-spacing: 0.025em;
+  line-height: 0.88;
+}
+
+h2 {
+  margin-top: 0;
+  margin-bottom: 0.55em;
+  font-size: clamp(2.7rem, 5vw, 4.4rem);
+  letter-spacing: 0.035em;
+  line-height: 0.95;
+}
+
+h3 {
+  margin-bottom: 0.15em;
+  color: var(--ocean);
+  font-size: clamp(1.65rem, 3vw, 2.15rem);
+  letter-spacing: 0.025em;
+  line-height: 1.05;
+}
+
+.content-wrap {
+  max-width: 950px;
+  margin: 0 auto;
+  padding: 55px;
+  overflow: hidden;
+}
+
+.column-narrow {
+  width: 30%;
+  min-height: 175px;
+  padding-right: 3%;
+  float: left;
+}
+
+.column-wide {
+  width: 70%;
+  min-height: 225px;
+  float: left;
+}
+
+.section-kicker,
+.eyebrow {
+  margin-bottom: 0.5rem;
+  color: var(--storm);
+  font-size: 1.05rem;
+  letter-spacing: 0.18em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.skip-link {
+  position: fixed;
+  z-index: 100;
+  top: 1rem;
+  left: 1rem;
+  padding: 0.7rem 1rem;
+  border-radius: 0.25rem;
+  background: var(--snow);
+  color: var(--midnight);
+  transform: translateY(-180%);
+  transition: transform 160ms ease;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+/* HW8 UPDATE: Sticky navigation menu
+------------------------------------*/
+.site-nav {
+  position: sticky;
+  z-index: 1000;
+  top: 0;
+  border-bottom: 1px solid rgba(167, 220, 224, 0.22);
+  background: rgba(11, 31, 51, 0.96);
+  box-shadow: 0 0.4rem 1.25rem rgba(4, 25, 41, 0.2);
+  backdrop-filter: blur(0.5rem);
+}
+
+.nav-wrap {
+  display: flex;
+  max-width: 950px;
+  margin: 0 auto;
+  padding: 0.55rem 1rem;
+  flex-wrap: wrap;
+  gap: 0.25rem 0.45rem;
+  align-items: center;
+  justify-content: center;
+  font-family: "Bebas Neue", Impact, sans-serif;
+  letter-spacing: 0.075em;
+}
+
+.site-nav a {
+  display: inline-block;
+  padding: 0.45rem 0.7rem;
+  border-radius: 0.2rem;
+  color: var(--frost);
+  line-height: 1;
+  text-decoration: none;
+  transition:
+    background-color 160ms ease,
+    color 160ms ease;
+}
+
+.site-nav a:hover,
+.site-nav a:focus-visible {
+  background: rgba(167, 220, 224, 0.15);
+  color: var(--ice);
+}
+
+.site-nav .resume-download {
+  border: 1px solid var(--storm);
+  background: var(--storm);
+  color: var(--snow);
+}
+
+.site-nav .resume-download:hover,
+.site-nav .resume-download:focus-visible {
+  background: var(--ice);
+  color: var(--midnight);
+}
+
+#top,
+#work,
+#education,
+#contact {
+  scroll-margin-top: 5rem;
+}
+
+/* Header & Footer
+------------------------------------*/
+.intro {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background:
+    radial-gradient(
+      circle at 85% 12%,
+      rgba(167, 220, 224, 0.2),
+      transparent 28rem
+    ),
+    linear-gradient(135deg, var(--midnight), var(--ocean));
+  color: var(--snow);
+}
+
+.intro::after {
+  position: absolute;
+  z-index: -1;
+  right: -7rem;
+  bottom: -13rem;
+  width: 28rem;
+  height: 28rem;
+  border: 1px solid rgba(167, 220, 224, 0.28);
+  border-radius: 50%;
+  box-shadow:
+    0 0 0 4rem rgba(167, 220, 224, 0.04),
+    0 0 0 8rem rgba(167, 220, 224, 0.025);
+  content: "";
+}
+
+/* HW8 UPDATE: Move the complete circle left and create space before the text. */
+.profile-img {
+  width: 27%;
+  margin-right: 3%;
+  padding-right: 0;
+  border: 0.65rem solid rgba(248, 251, 252, 0.14);
+  border-radius: 50%;
+  box-shadow: var(--shadow);
+  aspect-ratio: 1;
+  object-fit: cover;
+  object-position: 50% 28%;
+  transform: translateX(-10px);
+}
+
+header h1,
+header h2 {
+  margin: 0;
+}
+
+.intro-copy {
+  padding-top: 0.75rem;
+}
+
+.intro-copy h2 {
+  max-width: 38rem;
+  color: var(--ice);
+  font-size: clamp(2rem, 4vw, 3.15rem);
+}
+
+.intro .eyebrow {
+  color: var(--ice);
+}
+
+.summary {
+  max-width: 40rem;
+  margin-top: 1.35rem;
+  margin-bottom: 1.7rem;
+  color: #e4eff2;
+  font-size: clamp(1.05rem, 2vw, 1.22rem);
+}
+
+.quick-details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: 0;
+  padding: 0;
+  color: var(--ice);
+  font-size: 1rem;
+  letter-spacing: 0.08em;
+  list-style: none;
+  text-transform: uppercase;
+}
+
+.quick-details li {
+  padding: 0.4rem 0.7rem;
+  border: 1px solid rgba(167, 220, 224, 0.45);
+}
+
+footer {
+  background: var(--midnight);
+  color: var(--frost);
+  text-align: center;
+}
+
+footer h2 {
+  margin-bottom: 0.35em;
+  color: var(--snow);
+}
+
+footer .section-kicker {
+  color: var(--ice);
+}
+
+.contact-info a {
+  display: inline-block;
+  padding: 10px;
+  color: var(--ice);
+  font-size: 1.18rem;
+  letter-spacing: 0.06em;
+}
+
+/* HW8 UPDATE: Spacing keeps the Font Awesome icons aligned with their labels. */
+.contact-info i,
+.back-to-top i,
+.resume-download i {
+  margin-right: 0.3rem;
+}
+
+.back-to-top {
+  width: 100%;
+  margin: 2.5rem auto 0;
+  text-align: center;
+}
+
+.back-to-top a {
+  display: inline-block;
+  color: var(--ice);
+  font-size: 1.2rem;
+  letter-spacing: 0.08em;
+}
+
+.copyright {
+  margin: 2rem auto 0;
+  padding-top: 1.2rem;
+  border-top: 1px solid rgba(167, 220, 224, 0.2);
+  color: #abc4cb;
+  font-size: 0.85rem;
+}
+
+/* Work Experience
+------------------------------------*/
+.work-experience {
+  background: var(--snow);
+}
+
+.work-experience h2 {
+  color: var(--midnight);
+}
+
+.resume-item {
+  padding: 2.25rem 0;
+  border-top: 1px solid var(--line);
+  overflow: hidden;
+}
+
+.resume-item .column-narrow {
+  min-height: 225px;
+}
+
+.organization {
+  margin-bottom: 0.8rem;
+  color: var(--storm);
+  font-weight: 700;
+}
+
+.date-location {
+  margin-bottom: 1rem;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.resume-item .column-wide > p,
+.resume-item .column-wide > ul {
+  max-width: 52rem;
+}
+
+.resume-item ul {
+  margin-bottom: 0;
+  padding-left: 1.25rem;
+}
+
+.resume-item li {
+  padding-left: 0.35rem;
+}
+
+.resume-item li + li {
+  margin-top: 0.4rem;
+}
+
+.resume-item li::marker {
+  color: var(--storm);
+}
+
+.strengths {
+  clear: both;
+  margin-top: 2rem;
+  padding: 2rem;
+  border-left: 0.45rem solid var(--storm);
+  background: var(--frost);
+}
+
+.strengths h3 {
+  margin-bottom: 1rem;
+}
+
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin: 0;
+  padding: 0;
+  color: var(--ocean);
+  font-size: 1rem;
+  letter-spacing: 0.075em;
+  list-style: none;
+  text-transform: uppercase;
+}
+
+.tag-list li {
+  padding: 0.35rem 0.65rem;
+  border: 1px solid var(--line);
+  background: rgba(248, 251, 252, 0.7);
+}
+
+/* Education
+------------------------------------*/
+.education {
+  /* HW8 UPDATE: RGBA gradient keeps text readable over the background image. */
+  background:
+    linear-gradient(rgba(232, 243, 245, 0.94), rgba(167, 220, 224, 0.9)),
+    url("../images/vast-warehouse-interior-stockcake.jpg") center 32% / cover
+      no-repeat;
+}
+
+.education-grid {
+  display: grid;
+  grid-template-columns: minmax(13rem, 0.62fr) minmax(20rem, 1.38fr);
+  gap: clamp(2rem, 7vw, 5rem);
+  align-items: start;
+}
+
+.education h2 {
+  color: var(--midnight);
+}
+
+.education-card {
+  padding: 2.4rem;
+  border-top: 0.4rem solid var(--storm);
+  background: var(--snow);
+  box-shadow: 0 16px 36px rgba(11, 31, 51, 0.1);
+}
+
+.education-card h3:not(:first-child) {
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--line);
+}
+
+.education-card p:last-child {
+  margin-bottom: 0;
+}
+
+/* Responsive styles
+------------------------------------*/
+@media (max-width: 48rem) {
+  body {
+    font-size: 1.05rem;
+  }
+
+  .content-wrap {
+    padding: 40px 30px;
+  }
+
+  .column-narrow,
+  .column-wide {
+    width: 100%;
+    min-height: 0;
+    padding-right: 0;
+    float: none;
+  }
+
+  .profile-img.column-narrow {
+    width: 300px;
+    max-width: 100%;
+    margin: 0 auto 2.25rem;
+    transform: none;
+  }
+
+  .intro-copy {
+    padding-top: 0;
+    text-align: center;
+  }
+
+  .quick-details {
+    justify-content: center;
+  }
+
+  .resume-item .column-narrow {
+    min-height: 0;
+  }
+
+  .education-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 28rem) {
+  .nav-wrap {
+    padding: 0.45rem 0.35rem;
+    gap: 0.15rem;
+  }
+
+  .site-nav a {
+    padding: 0.4rem 0.45rem;
+    font-size: 0.9rem;
+  }
+
+  .content-wrap {
+    padding: 35px 22px;
+  }
+
+  h1 {
+    font-size: 4rem;
+  }
+
+  .quick-details {
+    display: grid;
+  }
+
+  .contact-info a {
+    display: block;
+  }
+
+  .strengths,
+  .education-card {
+    padding: 1.5rem;
+  }
+}
+
+@media print {
+  body {
+    background: #ffffff;
+    color: #000000;
+    font-size: 11pt;
+  }
+
+  .content-wrap {
+    max-width: none;
+    padding: 1rem 0;
+  }
+
+  .intro,
+  footer {
+    background: #ffffff;
+    color: #000000;
+  }
+
+  .education {
+    background: #ffffff;
+  }
+
+  .intro-copy h2,
+  .intro .eyebrow,
+  .summary,
+  .quick-details,
+  footer .section-kicker,
+  .contact-info,
+  footer h2 {
+    color: #000000;
+  }
+
+  .profile-img {
+    box-shadow: none;
+  }
+
+  .resume-item,
+  .education-card,
+  .strengths {
+    break-inside: avoid;
+    box-shadow: none;
+  }
+
+  .skip-link,
+  .site-nav,
+  .copyright,
+  .back-to-top {
+    display: none;
+  }
+}
