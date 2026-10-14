@@ -445,10 +445,13 @@ footer .section-kicker {
 ------------------------------------*/
 .education {
   /* HW8 UPDATE: RGBA gradient keeps text readable over the background image. */
+
   background:
     linear-gradient(rgba(232, 243, 245, 0.94), rgba(167, 220, 224, 0.9)),
     url("../images/vast-warehouse-interior-stockcake.jpg") center 32% / cover
       no-repeat;
+  /* HW8 UPDATE: Scrolls the background image with the page. */
+  background-attachment: scroll, fixed;
 }
 
 .education-grid {
